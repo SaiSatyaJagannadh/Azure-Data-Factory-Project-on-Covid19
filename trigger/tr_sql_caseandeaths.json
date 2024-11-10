@@ -1,0 +1,34 @@
+{
+	"name": "tr_sql_caseandeaths",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "pl_sql_casesanddeaths",
+				"type": "PipelineReference"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Month",
+			"interval": 4,
+			"startTime": "2024-08-28T06:14:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": [
+				{
+					"type": "TumblingWindowTriggerDependencyReference",
+					"offset": "-0.00:16:00",
+					"referenceTrigger": {
+						"referenceName": "tr_process_casesanddeaths_data",
+						"type": "TriggerReference"
+					}
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"name": "ds_transform_casesdeath",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Is_adls_covidreportingdl",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "process"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "ecdc/casesanddeaths",
+				"fileSystem": "proceed"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
